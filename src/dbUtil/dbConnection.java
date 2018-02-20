@@ -5,23 +5,25 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class dbConnection {
+    public static final String SQCONN ="jdbc:sqlite:school.sqlite";
+    public static Connection getConnection() throws SQLException {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            return DriverManager.getConnection(SQCONN);
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
-   private static final String SOCONN = "jabc:sqlite:school.sqlite";
-    private static final String SQCONN = ;
+        return null;
 
-    private static Connection getConnection(){
-       try {
-           Class.forName("org.sqlite.JDBC");
-           return DriverManager.getConnection(SQCONN);
-           
-       } catch (ClassNotFoundException e) {
-           e.printStackTrace();
-       } catch (SQLException e) {
-           e.printStackTrace();
-       }
-       return null;
-   }//getConnection
+
+
+    }//getConnection
+
+
+
 
 
 }//class
